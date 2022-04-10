@@ -14,7 +14,9 @@ net set ado "$root/code/src/libraries/stata" // tell Stata to install any packag
 
 ** Install SSC packages
 #delimit ;
-	local packages "estout moremata winsor2" ;
+	local packages "confirmdir sdmxuse distinct wbopendata xtscc 
+		valuesof labellist mdesc fs winsor2" ;
+// 			local packages "winsor2" ;
 #delimit cr
 	
 foreach p of local packages {
@@ -29,20 +31,21 @@ foreach p of local packages {
 	 
 	* Install ftools (remove program if it existed previously)
 	cap ado uninstall ftools
-	net install ftools, from("https://raw.githubusercontent.com/sergiocorreia/ftools/master/src/")
+	net install ftools, from("https://raw.githubusercontent.com/sergiocorreia/ftools/master/src/") replace
 
 	* Install reghdfe 6.x
 	cap ado uninstall reghdfe
-	net install reghdfe, from("https://raw.githubusercontent.com/sergiocorreia/reghdfe/master/src/")
+	net install reghdfe, from("https://raw.githubusercontent.com/sergiocorreia/reghdfe/master/src/") replace
 
 	* To run IV/GMM regressions with ivreghdfe, also run these lines:
 	cap ado uninstall ivreg2hdfe
 	cap ado uninstall ivreghdfe
 	cap ssc install ivreg2 // Install ivreg2, the core package
-	net install ivreghdfe, from(https://raw.githubusercontent.com/sergiocorreia/ivreghdfe/master/src/)
-	
+	net install ivreghdfe, from("https://raw.githubusercontent.com/sergiocorreia/ivreghdfe/master/src/") replace
+
+/*
  // GTOOLS 
 	 
 	local github "https://raw.githubusercontent.com"
 	* Gtools (may not work on Mac)
-	net install gtools, from(`github'/mcaceresb/stata-gtools/master/build/)
+	net install gtools, from(`github'/mcaceresb/stata-gtools/master/build/) replace

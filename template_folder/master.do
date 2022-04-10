@@ -52,6 +52,15 @@ else {
 
 ** Install all required packages locally (delete this line at the very end of the project, when preparing the replication package)
 // do "$root/src/install_packages.do"  
+do "$root/code/src/define_colors.do"
+
+** Create base folders 
+cap mkdir "$root/output/data"
+cap mkdir "$root/output/fig"
+cap mkdir "$root/output/table"
+cap mkdir "$root/raw/proprietary"  // Only proprietary data 
+cap mkdir "$root/raw/vintages"     // Public data that needs frequent updates 
+cap mkdir "$root/raw/original"     // Public data that does not need updates (e.g. replication packages, large files) 
 
 
 ** Run all do files from here 
