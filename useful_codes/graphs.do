@@ -36,7 +36,8 @@ sysuse tsline2, clear
 						 	  region(lstyle(none)) // no legend margin
 							  bmargin(zero)) // no legend margin
 						  ;
-							 
+	#delimit cr
+
 	graph export "fig1.png", replace
 	
 	
