@@ -39,10 +39,16 @@ while `"`1'"' != "" {
 adopath ++ "$root/code/src/libraries/stata"
  
 ** Common settings
+clear all 
+macro drop _all 
+program drop _all
 set more off          // window output not interrupted
 set varabbrev off     // do not allow variable abbreviations
 pause on              // for debugging purposes
-set scheme s2color           // set common color scheme (can be found in ./src/libraries/stata)
+set trace off
+set maxvar 100000
+set scheme custom     // this file exists in the C:/Users/user/ado/personal folder and NOT in the current repo 
+
 if c(os) == "MacOSX" {
 	graph set window fontface "Arial Rounded MT Bold"  // set common color font Mac 
 } 
