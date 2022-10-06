@@ -1,6 +1,8 @@
 
 ************* MASTER FILE **********
-
+clear all 
+macro drop _all 
+program drop _all
 
 *** USER MUST FIRST DEFINE PATH TO THIS DIRECTORY ****
 global root "C:\Users\[user]\git\princecon\stata\template_folder"
@@ -37,17 +39,16 @@ while `"`1'"' != "" {
   macro shift
 }
 adopath ++ "$root/code/src/libraries/stata"
- 
+// adopath + "C:\Users\ts2934\ado\personal"
+// set scheme custom, perm // this file exists in the C:/Users/user/ado/personal folder and NOT in the current repo 
+// adopath - "C:\Users\ts2934\ado\personal"
+
 ** Common settings
-clear all 
-macro drop _all 
-program drop _all
 set more off          // window output not interrupted
 set varabbrev off     // do not allow variable abbreviations
 pause on              // for debugging purposes
 set trace off
 set maxvar 100000
-set scheme custom     // this file exists in the C:/Users/user/ado/personal folder and NOT in the current repo 
 
 if c(os) == "MacOSX" {
 	graph set window fontface "Arial Rounded MT Bold"  // set common color font Mac 
@@ -57,7 +58,7 @@ else {
 }
 
 ** Install all required packages locally (delete this line at the very end of the project, when preparing the replication package)
-// do "$root/src/install_packages.do"  
+// do "$root/code/src/install_packages.do"  
 do "$root/code/src/define_colors.do"
 
 ** Create base folders 
