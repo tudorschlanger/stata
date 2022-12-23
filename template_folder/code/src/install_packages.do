@@ -15,7 +15,9 @@ net set ado "$root/code/src/libraries/stata" // tell Stata to install any packag
 ** Install SSC packages
 #delimit ;
 	local packages "confirmdir sdmxuse distinct wbopendata xtscc 
-		valuesof labellist mdesc fs winsor2" ;
+		valuesof labellist mdesc fs winsor2 missings ereplace egenmore
+		estout ranktest moremata freduse texsave labutil filelist 
+		mergemany sxpose" ;
 // 			local packages "winsor2" ;
 #delimit cr
 	
@@ -25,6 +27,10 @@ foreach p of local packages {
 	net install `p', replace
 }
 
+** Customized install
+	net from http://www.stata.com/users/vwiggins
+	net install grc1leg.pkg, replace    // for graphs with common legends
+	
 ** Install special packages from Github (more recent than what's on SSC)
 
  // FTOOLS
