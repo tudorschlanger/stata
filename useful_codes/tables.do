@@ -5,8 +5,10 @@
 	 
  */
 
+*************
+** ESTOUT 
+*************
 
-********************************************************************************
 ** Add subtitles grouping together regression specifications, export to Latex  
 	// Credit: Sylvain Weber : https://www.stata.com/statalist/archive/2012-11/msg00925.html
 
@@ -26,4 +28,29 @@ sysuse auto, clear
 	*/ 
 
 ********************************************************************************
+
+*************
+** TEXSAVE 
+*************
+	/* Syntax 
+texsave [varlist] using filename [if] [in] [, title(string) size(string) width(string) align(string) location(string)
+	label(string) autonumber hlines(numlist) footnote(footnote_options) varlabels landscape geometry(string)
+	rowsep(string) decimalalign nonames nofix noendash preamble(stringlist) headlines(stringlist)
+	headerlines(stringlist) footlines(stringlist) sw frag replace format_options]
+	*/
+			
+version 14 
+sysuse auto, clear
+
+collapse (mean) price mpg headroom, by(foreign)
+
+foreach var of varlist * {
+	cap replace `var' = round(`var', 0.1)
+}
+
+texsave * using "C:\Users\ts2934\Desktop\table.tex", ///
+	replace  decimalalign varlabels location("htp") width("0.6\linewidth") ///
+	label("table") ///
+	title("Average by Foreign Status")
 	
+  
