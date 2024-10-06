@@ -5,11 +5,9 @@ macro drop _all
 program drop _all
 
 *** USERS MUST FIRST DEFINE PATH TO THIS DIRECTORY ****
-if  "`c(username)'" == "ts2934" global root "C:/Users/ts2934/Dropbox (Princeton)/projects/econ101"
-if  "`c(username)'" == "schl"   global root "/Users/schl/Dropbox (Princeton)/projects/econ101/"
+if  "`c(username)'" == "schl"   global root "/Users/schl/Dropbox (Personal)/projects/"
 *** USERS MUST FIRST DEFINE PATH TO THE OVERLEAF DIRECTORY ****
-if  "`c(username)'" == "ts2934" global overleaf "C:/Users/ts2934/Dropbox (Princeton)/Apps/Overleaf/econ101"
-if  "`c(username)'" == "schl"   global root "/Users/schl/Dropbox (Princeton)/Apps/Overleaf/econ101"
+if  "`c(username)'" == "schl"   global overleaf "/Users/schl/Dropbox (Personal)/Apps/Overleaf/"
 
 	
 	************** SETTINGS ***************
@@ -50,7 +48,7 @@ if  "`c(username)'" == "schl"   global root "/Users/schl/Dropbox (Princeton)/App
 	set varabbrev off     // do not allow variable abbreviations
 	pause on              // for debugging purposes
 	if c(os) == "MacOSX" {
-		graph set window fontface "Arial Rounded MT Bold"  // set common color font Mac 
+		graph set window fontface "Palatino"  // set common color font Mac 
 	} 
 	else {
 		graph set window fontface "Arial Rounded MT Bold"  // set common color font Windows
