@@ -1,0 +1,47 @@
+* Custom scheme
+*
+* Make sure teh parent folder is added to path 
+* Then, you will also need to run the command "set scheme custom, perm" to use this scheme
+* 
+
+#include s2color  // default scheme, commands below modify default
+
+* Background color 
+color plotregion        white    // part inside graph
+color background        white    // 
+color graphregion       white    // part outside graph 
+
+* Ticks 
+anglestyle vertical_tick horizontal  // ylabels are horizontal 
+
+* Grid 
+linewidth major_grid            thin   // grids are thinner
+linewidth minor_grid            thin
+yesno draw_major_hgrid      	yes
+yesno draw_major_vgrid      	yes
+
+linepattern grid        	dot
+linepattern major_grid  	dot
+linepattern minor_grid  	dot
+
+color major_grid            	gs9  // gray 
+color minor_grid            	gs9
+
+yesno grid_draw_min          	no
+yesno grid_draw_max          	no
+
+* Axis lines 
+yesno extend_axes_low       	yes
+yesno extend_axes_high      	no
+yesno extend_axes_full_low  	yes
+yesno extend_axes_full_high 	no
+
+
+* Margins 
+margin heading 			bottom
+margin axis_title 		small
+margin plotregion        	zero
+
+
+* Legend 
+linestyle  legend   none

@@ -52,6 +52,6 @@ sysuse auto, clear
 		   xtitle("Weight (lbs)") 
 		   legend(label(1 "Observed Data") label(2 "Linear Fit") 
 					region(lcolor(none) fcolor(none))) 
-			graphregion(color(white))
+			graph
 		   ;
 	#delimit cr
